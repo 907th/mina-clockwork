@@ -11,6 +11,9 @@ Via Bundler:
 gem 'mina-clockwork', require: false
 ```
 
+PS: You will need the `daemons` gem to use `clockworkd`, be sure that `daemons`
+is available in the deployed environment!
+
 ## Usage example
 
 ```ruby
