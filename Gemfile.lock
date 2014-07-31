@@ -4,7 +4,6 @@ PATH
     mina-clockwork (0.0.2)
       clockwork
       daemons
-      puma
 
 GEM
   remote: https://rubygems.org/
@@ -22,9 +21,6 @@ GEM
     i18n (0.6.11)
     json (1.8.1)
     minitest (5.4.0)
-    puma (2.9.0)
-      rack (>= 1.1, < 2.0)
-    rack (1.5.2)
     rake (10.3.2)
     thread_safe (0.3.4)
     tzinfo (1.2.1)
