@@ -1,4 +1,5 @@
 require 'mina/bundler'
+require 'mina/rails'
 
 namespace :clockwork do
   set_default :clockwork_dir, -> { "#{deploy_to}/#{current_path}" }
