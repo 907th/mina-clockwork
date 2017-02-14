@@ -20,5 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'clockwork'
   spec.add_dependency 'daemons'
-  spec.add_dependency 'mina', '~> 0'
+  spec.add_dependency 'mina', '>= 1.0.2'
 end
