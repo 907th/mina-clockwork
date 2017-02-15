@@ -19,6 +19,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "clockwork"
-  spec.add_dependency "daemons"
   spec.add_dependency "mina", ">= 1.0.2"
 end
