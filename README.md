@@ -1,4 +1,4 @@
-# Mina Clockwork
+# Mina + Clockwork
 
 Clockwork deployment scenario for mina. It uses `clockworkd` executable to start
 clockwork daemon on the server. `clockworkd` is the part of the [`clockwork`](https://github.com/Rykian/clockwork).
@@ -18,8 +18,6 @@ end
 ```
 
 ## Configuration
-
-### Minimal Configuration
 
 ```ruby
 # config/deploy.rb
@@ -41,8 +39,6 @@ task deploy: :environment do
 end
 ```
 
-### Configuration Options
-
 Use these options to configure the plugin:
 
 * `clockwork_dir` - Daemon working dir (Default: current deployment path)
@@ -53,8 +49,7 @@ Use these options to configure the plugin:
 
 Example:
 
-```
-# config/deploy.rb
+```ruby
 set :clockwork_file, -> { "#{fetch(:current_path)}/my_clock_file.rb"  }
 ```
 
