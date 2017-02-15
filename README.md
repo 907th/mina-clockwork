@@ -1,59 +1,71 @@
 # Mina Clockwork
 
-Clockwork deployment scenario for mina. It uses `clockworkd` to start clockwork daemon.
+Clockwork deployment scenario for mina. It uses `clockworkd` executable to start
+clockwork daemon on the server. `clockworkd` is the part of the [`clockwork`](https://github.com/Rykian/clockwork).
+
+*Important!* You will need both `clockwork` and `daemons` gems available on the server!
 
 ## Installation
 
-Via Bundler:
-
 ```ruby
 # Gemfile
-gem 'mina-clockwork', require: false
+
+gem "mina-clockwork"
+
+group :production do
+  gem "daemons"  # for `clockworkd`
+end
 ```
 
-PS: You will need the `daemons` gem to use `clockworkd`, be sure that `daemons`
-is available in the deployed environment!
+## Configuration
 
-## Usage example
+### Minimal Configuration
 
 ```ruby
 # config/deploy.rb
 
-require 'mina/clockwork'
+require "mina/clockwork"
 
-set :clockwork_file, -> { "#{deploy_to}/#{current_path}/app/clockwork.rb" }
-set :clockwork_identifier, -> { rails_env }
-... other options
+... set configuration options here if you need ...
 
 task deploy: :environment do
   deploy do
-    invoke 'clockwork:stop'
-    invoke 'git:clone'
+    invoke :"clockwork:stop"
     ...
 
     to :launch do
       ...
-      invoke 'clockwork:start'
+      invoke :"clockwork:start"
     end
   end
 end
 ```
 
+### Configuration Options
+
+Use these options to configure the plugin:
+
+* `clockwork_dir` - Daemon working dir (Default: current deployment path)
+* `clockwork_file` - Clock file (Default: [current deployment path]/clock.rb)
+* `clockwork_identifier` - Identifier of the `clockworkd` process (Default: name of the clock file)
+* `clockwork_pid_dir` - Dir for `*.pid` file (Default: [shared path]/tmp/pids)
+* `clockwork_log_dir` - Dir for `*.log` files (Default: [shared path]/log)
+
+Example:
+
+```
+# config/deploy.rb
+set :clockwork_file, -> { "#{fetch(:current_path)}/my_clock_file.rb"  }
+```
+
 ## Tasks
 
 ```
-mina clockwork:restart  # Restart clockworkd
-mina clockwork:start    # Start clockworkd
-mina clockwork:stop     # Stop clockworkd
+mina clockwork:restart  # Restart clockwork daemon
+mina clockwork:start    # Start clockwork daemon
+mina clockwork:stop     # Stop clockwork daemon
 ```
 
-## Configuration
-
-* `clockwork_dir` - Working dir (Default: current deployment path)
-* `clockwork_file` - Clock file (Default: [current deployment path]/clock.rb)
-* `clockwork_identifier` - Identifier for clockworkd process (Default: name of clock file)
-* `clockwork_pid_dir` - Dir for pid file (Default: [shared path]/tmp/pids)
-* `clockwork_log_dir` - Dir for log files (Default: [shared path]/log)
 
 ## Contributing
 
