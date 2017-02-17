@@ -1,5 +1,3 @@
-require "mina/bundler"
-
 set :clockwork_dir,        -> { "#{fetch(:current_path)}" }
 set :clockwork_file,       -> { "#{fetch(:current_path)}/clock.rb"  }
 set :clockwork_identifier, -> { File.basename(clockwork_file, ".rb") }
