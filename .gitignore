@@ -1,4 +1,5 @@
 pkg
 .ruby-version
+.ruby-gemset
 .bundle
 Gemfile.lock
