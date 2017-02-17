@@ -9,8 +9,10 @@ set :clockwork_log_dir,    -> { "#{fetch(:shared_path)}/log" }
 set :clockworkd_cmd,       -> {
   if set?(:bundle_prefix)
     "#{fetch(:bundle_prefix)} clockworkd"
-  else
+  elsif set?(:bundle_bin)
     "#{fetch(:bundle_bin)} exec clockworkd"
+  else
+    "clockworkd"
   end
 }
 
