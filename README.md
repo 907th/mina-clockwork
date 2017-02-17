@@ -31,7 +31,7 @@ task deploy: :environment do
     invoke :"clockwork:stop"
     ...
 
-    to :launch do
+    on :launch do
       ...
       invoke :"clockwork:start"
     end
