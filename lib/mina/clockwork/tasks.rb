@@ -1,6 +1,6 @@
 set :clockwork_dir,        -> { "#{fetch(:current_path)}" }
 set :clockwork_file,       -> { "#{fetch(:current_path)}/clock.rb"  }
-set :clockwork_identifier, -> { File.basename(clockwork_file, ".rb") }
+set :clockwork_identifier, -> { File.basename(fetch(:clockwork_file), ".rb") }
 set :clockwork_pid_dir,    -> { "#{fetch(:shared_path)}/tmp/pids" }
 set :clockwork_log_dir,    -> { "#{fetch(:shared_path)}/log" }
 
