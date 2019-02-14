@@ -26,21 +26,21 @@ set :clockworkd_full_cmd,  -> {
 namespace :clockwork do
   # mina clockwork:start
   desc "Start clockwork daemon"
-  task start: :environment do
+  task :start do
     comment "Starting clockwork daemon"
     command "#{fetch(:clockworkd_full_cmd)} start"
   end
 
   # mina clockwork:stop
   desc "Stop clockwork daemon"
-  task stop: :environment do
+  task :stop do
     comment "Stopping clockwork daemon"
     command "#{fetch(:clockworkd_full_cmd)} stop"
   end
 
   # mina clockwork:restart
   desc "Restart clockwork daemon"
-  task restart: :environment do
+  task :restart do
     comment "Restarting clockwork daemon"
     command "#{fetch(:clockworkd_full_cmd)} restart"
   end
