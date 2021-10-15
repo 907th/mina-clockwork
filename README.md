@@ -1,3 +1,7 @@
+# Unmaintained
+
+Dear users of this gem! Sorry, but I no longer maintain it!
+
 # Mina + Clockwork
 
 Clockwork deployment scenario for mina. It uses `clockworkd` executable to start
